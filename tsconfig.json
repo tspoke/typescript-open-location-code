@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es6", "dom"
+    ],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "allowJs": true,
+    "outDir": "build",
+    "sourceMap": true,
+    "target": "es6",
+    "types": [
+      "reflect-metadata"
+    ],
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "./src/**/*"
+  ]
+}
