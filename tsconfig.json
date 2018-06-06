@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "lib": [
-      "es6", "dom"
+      "es6",
+      "dom"
     ],
     "module": "commonjs",
     "noImplicitReturns": true,
@@ -19,5 +20,8 @@
   "compileOnSave": true,
   "include": [
     "./src/**/*"
+  ],
+  "exclude": [
+    "./tests/*"
   ]
 }

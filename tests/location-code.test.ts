@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import OpenLocationCode from "../libs/open-location-code";
+import OpenLocationCode from "../src/libs/open-location-code";
 
 const SHORT_CODE = "FFF4+W7FH";
 const CODE = "8CVX" + SHORT_CODE;
@@ -32,4 +32,3 @@ describe('Location Plus Code Tests', () => {
     expect(OpenLocationCode.recoverNearest(SHORT_CODE, LATITUDE, LONGITUDE)).to.equal(CODE);
   });
 });
-

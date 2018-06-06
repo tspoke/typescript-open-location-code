@@ -1,5 +1,3 @@
-
-
 const LATITUDE_MAX = 90;
 const LONGITUDE_MAX = 180;
 
