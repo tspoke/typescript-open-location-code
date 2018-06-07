@@ -7,7 +7,7 @@
     "module": "commonjs",
     "noImplicitReturns": true,
     "allowJs": true,
-    "outDir": "build",
+    "outDir": "dist",
     "sourceMap": true,
     "target": "es6",
     "types": [

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import OpenLocationCode from "../src/libs/open-location-code";
+import OpenLocationCode from "../src/index";
 
 const SHORT_CODE = "FFF4+W7FH";
 const CODE = "8CVX" + SHORT_CODE;

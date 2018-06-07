@@ -7,3 +7,4 @@
 /captures
 .externalNativeBuild
 node_modules
+/dist
