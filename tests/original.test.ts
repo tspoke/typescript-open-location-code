@@ -2,9 +2,9 @@ import {expect} from "chai";
 import "mocha";
 import OpenLocationCode from "../src/index";
 
-describe.only("", () => {
+describe("Original tests", () => {
 
-  it("test encode", () => {
+  it("testEncode", () => {
     // Each test has a code, the lat/lng of the center, lat/lng lo and lat/lng hi.
     const tests = [
       [
