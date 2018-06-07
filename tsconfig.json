@@ -13,6 +13,9 @@
     "types": [
       "reflect-metadata"
     ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true

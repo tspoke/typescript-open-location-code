@@ -24,6 +24,14 @@ class CodeArea {
     this.latitudeCenter = Math.min(latitudeLo + (latitudeHi - latitudeLo) / 2, LATITUDE_MAX);
     this.longitudeCenter = Math.min(longitudeLo + (longitudeHi - longitudeLo) / 2, LONGITUDE_MAX);
   }
+
+  public getLatitudeHeight(): number {
+    return this.latitudeHi - this.latitudeLo;
+  }
+
+  public getLongitudeWidth(): number {
+    return this.longitudeHi - this.longitudeLo;
+  }
 }
 
 /**
@@ -104,7 +112,7 @@ export default class OpenLocationCode {
    * @return {boolean} True if the string is a valid code.
    */
   public static isValid(code: string): boolean {
-    if(!code){
+    if (!code) {
       return false;
     }
     // The separator is required.
@@ -212,6 +220,14 @@ export default class OpenLocationCode {
     }
     return true;
   };
+
+  public contains(latitude: number, longitude: number): boolean {
+    const codeArea = OpenLocationCode.decode(this.getCode());
+    return codeArea.latitudeLo <= latitude
+      && latitude < codeArea.latitudeHi
+      && codeArea.longitudeLo <= longitude
+      && longitude < codeArea.longitudeHi;
+  }
 
   /**
    * Encode a location into an Open Location Code.
