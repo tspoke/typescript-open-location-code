@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import OpenLocationCode from "../src/index";
+import OpenLocationCode from "../src/open-location-code";
 import dataset from "./data/encoding";
 
 class TestData {

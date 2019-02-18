@@ -1,13 +1,13 @@
 {
   "name": "open-location-code-typescript",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "Open Location Code Typescript implementation",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tspoke/typescript-open-location-code.git"
   },
-  "main": "./dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/open-location-code.js",
+  "types": "./dist/open-location-code.d.ts",
   "author": "Thibaud Giovannetti",
   "scripts": {
     "build": "./node_modules/.bin/tslint -c tslint.json -p tsconfig.json && ./node_modules/.bin/tsc -p tsconfig.json",
