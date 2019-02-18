@@ -6,15 +6,12 @@
     ],
     "module": "commonjs",
     "noImplicitReturns": true,
-    "allowJs": true,
     "outDir": "dist",
     "sourceMap": true,
     "target": "es6",
+    "declaration": true,
     "types": [
       "reflect-metadata"
-    ],
-    "typeRoots": [
-      "./node_modules/@types"
     ],
     "moduleResolution": "node",
     "experimentalDecorators": true,

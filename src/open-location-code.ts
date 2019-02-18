@@ -10,7 +10,7 @@ const LONGITUDE_MAX = 180;
  *
  * @constructor
  */
-class CodeArea {
+export class CodeArea {
   /**
    * The latitude of the center in degrees.
    */
@@ -50,12 +50,13 @@ export default class OpenLocationCode {
    * Returns whether this {@link OpenLocationCode} is a padded Open Location Code, meaning that it
    * contains less than 8 valid digits.
    */
-  private isPadded(): boolean {
+  public isPadded(): boolean {
     return this.code.indexOf(OpenLocationCode.PADDING_CHARACTER_) >= 0;
   }
 
   private static readonly CODE_PRECISION_NORMAL = 10;
   private static readonly CODE_PRECISION_EXTRA = 11;
+  private static readonly MAX_DIGIT_COUNT = 15;
 
   // A separator used to break the code into two parts to aid memorability.
   private static readonly SEPARATOR_ = "+";
@@ -247,6 +248,9 @@ export default class OpenLocationCode {
     if (codeLength < 2 || (codeLength < OpenLocationCode.PAIR_CODE_LENGTH_ && codeLength % 2 === 1)) {
       throw new Error("IllegalArgumentException: Invalid Open Location Code length");
     }
+
+    codeLength = Math.min(OpenLocationCode.MAX_DIGIT_COUNT, codeLength);
+
     // Ensure that latitude and longitude are valid.
     let clippedLatitude = OpenLocationCode.clipLatitude(latitude);
     const clippedLongitude = OpenLocationCode.normalizeLongitude(longitude);
@@ -290,7 +294,7 @@ export default class OpenLocationCode {
       return codeArea; // If there is a grid refinement component, decode that.
     }
 
-    const gridArea = OpenLocationCode.decodeGrid(editedCode.substring(OpenLocationCode.PAIR_CODE_LENGTH_));
+    const gridArea = OpenLocationCode.decodeGrid(editedCode.substring(OpenLocationCode.PAIR_CODE_LENGTH_, OpenLocationCode.MAX_DIGIT_COUNT));
     return new CodeArea(
       codeArea.latitudeLo + gridArea.latitudeLo,
       codeArea.longitudeLo + gridArea.longitudeLo,
