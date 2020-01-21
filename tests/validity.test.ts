@@ -18,18 +18,20 @@ class TestData {
   }
 }
 
-describe("Shortening Tests", () => {
+describe("Validity Tests", () => {
   const testDataList: TestData[] = dataset.map(data => new TestData(data));
 
   it("testIsValid", () => {
     testDataList.forEach(testData => {
-      expect(testData.isValid).to.equal(OpenLocationCode.isValid(testData.code));
+      expect(testData.isValid).equal(OpenLocationCode.isValid(testData.code),
+          `${testData.code} is ${OpenLocationCode.isValid(testData.code) ? 'valid': 'not valid'}, but should be ${testData.isValid? 'valid': 'not valid'}`);
     });
   });
 
   it("testIsShort", () => {
     testDataList.forEach(testData => {
-      expect(testData.isShort).to.equal(OpenLocationCode.isShort(testData.code));
+      expect(testData.isShort).to.equal(OpenLocationCode.isShort(testData.code),
+          `${testData.code} is ${OpenLocationCode.isShort(testData.code) ? 'short': 'not short'}, but should be ${testData.isShort? 'short': 'not short'}`);
     });
   });
 
