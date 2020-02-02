@@ -157,6 +157,10 @@ export default class OpenLocationCode {
     // We can have an even number of padding characters before the separator,
     // but then it must be the final character.
     if (code.indexOf(OpenLocationCode.PADDING_CHARACTER_) > -1) {
+      // Short codes cannot have padding
+      if (code.indexOf(OpenLocationCode.SEPARATOR_) < OpenLocationCode.SEPARATOR_POSITION_) {
+        return false;
+      }
       // Not allowed to start with them!
       if (code.indexOf(OpenLocationCode.PADDING_CHARACTER_) === 0) {
         return false;
